@@ -9,11 +9,11 @@ For the uninitiated, an [ipsum](https://www.lipsum.com/) is placeholder gibberis
 For non-trekkies, Ferengi ipsum is based on the __Rules of Acquisition__, a collection of 285 "sacred" business proverbs of the [Ferengi](https://en.wikipedia.org/wiki/Ferengi), an alien race of ultra-capitalists. Instead of strange Latin words, you get pithy inspirational quotes that would make Gordon Gekko proud.
 
 ## Origin Story
-The idea of Ferengi Ipsum came while watching reruns of *__[Star Trek: Deep Space 9]__(https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine)*, my hands-down favorite of the  franchise. Ironically, when I watched *DS9* years ago I found Ferengis to be annoying characters. Rewatching the series a decade plus later, I cackled at their antics and scribbled down any mention of their *Rules of Acquisition*. For what purpose? I wasn't sure, but I figured it would come to me someday. And here we are... .
+The idea of Ferengi Ipsum came while watching reruns of *__[Star Trek: Deep Space 9](https://en.wikipedia.org/wiki/Star_Trek:_Deep_Space_Nine)__*, my hands-down favorite of the  franchise. Ironically, when I watched *DS9* years ago I found Ferengis to be annoying characters. Rewatching the series a decade plus later, I cackled at their antics and scribbled down any mention of their *Rules of Acquisition*. For what purpose? I wasn't sure, but I figured it would come to me someday. And here we are... .
 
 ## Target Audience
 * Star Trek fans or anyone who wants tongue-in-cheek "motivational business quotes" to:<br>
-  * Use as (dummy or humorous) placeholder text (for design or development projects)<br>
+  * Use as [dummy] placeholder text for design, content or development projects<br>
   * Share on social media
 
 ## Features
