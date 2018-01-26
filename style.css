@@ -21,6 +21,8 @@ body {
 	background-color: #fff;
 	color: #000;
 	border-radius: 4px;
+	-webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
+	-moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 	display: flex;
     justify-content: center;
@@ -59,6 +61,12 @@ input::placeholder {
 	text-align: center;
 	border: 0px;
 	outline: none;
+	cursor: pointer;
+}
+
+#submit-btn:hover {
+	background: rgb(233, 171, 192);
+	color: #fff;
 }
 
 @media only screen and (max-width: 571px) {
