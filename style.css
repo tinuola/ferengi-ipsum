@@ -25,8 +25,8 @@ body {
 	-moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 	display: flex;
-    justify-content: center;
-    align-items: center;}
+  justify-content: center;
+  align-items: center;}
 
 #ipsum-display {
 	padding: 0 50px;
@@ -48,9 +48,9 @@ input::placeholder {
 	color: rgb(202, 200, 200);
 	font-size: 16px;}
 
-#submit-btn {
-	background: #EEEEEE;
-	color: rgb(61, 56, 56);
+button {
+	background: rgba(95, 54, 68, 0.77);
+	color: rgb(255, 255, 255);
 	font-size: 20px;
 	font-weight: 500;
 	letter-spacing: 3px;
@@ -62,11 +62,20 @@ input::placeholder {
 	border: 0px;
 	outline: none;
 	cursor: pointer;
+	position: relative;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
-#submit-btn:hover {
-	background: rgb(233, 171, 192);
-	color: #fff;
+button:hover {
+	background: rgb(144, 104, 118);
+	color: rgb(255, 255, 255);
+}
+
+/* Make button "jump" on click */
+/* Set main selector position relative */
+button:active {
+	top: 2px;
 }
 
 @media only screen and (max-width: 571px) {

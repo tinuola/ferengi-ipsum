@@ -21,16 +21,14 @@ ipsumDisplay.innerHTML = starterRule;
 let submitElem = document.getElementById("submit-btn");
 submitElem.addEventListener("click", displayRules);
 
-//On pressing "enter" key after input
+//On pressing "enter" key after input, display user's request
 let userInputElem = document.getElementById("user-input");
 userInputElem.addEventListener("keypress", pressSubmit);
 
-//Display rules on keypress "enter"
-function pressSubmit(event){
-    if (event.keyCode === 13) {
-    	displayRules();
-    }
-}
+//Copy displayed rule(s) to clipboard
+//Initialize Clipboard.js
+let copyElem = document.getElementById("copy-btn");
+let clipboard = new Clipboard(copyElem);
 
 //Display n # of rules
 function displayRules(){
@@ -39,8 +37,14 @@ function displayRules(){
 	for (var i = 0; i < Number(userInputVal); i++){
 		displayArr.push(pickRandomRule());
 	}
-	// ipsumDisplay.innerHTML = displayArr.join(" ");
 	ipsumDisplay.innerHTML = removeCase(displayArr).join(" ");
+}
+
+//Display rules on keypress "enter"
+function pressSubmit(event){
+	if (event.keyCode === 13) {
+		displayRules();
+	}
 }
 
 //Remove case of subsequent rules
