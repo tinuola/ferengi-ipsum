@@ -1,3 +1,14 @@
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyAKPeWrJfUzirO1WJvXb4bsMNTFr-SM6Wg",
+	authDomain: "fir-starter-d393d.firebaseapp.com",
+	databaseURL: "https://fir-starter-d393d.firebaseio.com",
+	projectId: "fir-starter-d393d",
+	storageBucket: "fir-starter-d393d.appspot.com",
+	messagingSenderId: "261444474725"
+};
+firebase.initializeApp(config);
+
 //Hardcoded rules
 let rules = [
 	"War is good for business",
@@ -11,6 +22,28 @@ let rules = [
 	"Even if it's free you can always buy it cheaper",
 	"Satisfaction is not guaranteed"
 ];
+
+let fbDisplayElem = document.getElementById("firebase-display");
+let fbRulesListRef = firebase.database().ref("rules/");
+
+// fbRulesListRef.on("value", displayFirebase);
+// function displayFirebase(dataSnapshot) {
+// 	let displayOfRules = dataSnapshot.val();
+// 	fbDisplayElem.textContent = JSON.stringify(displayOfRules);
+// }
+
+fbRulesListRef.on("value", displayAllRules);
+function displayAllRules (dataSnapshot) {
+	let getRules = dataSnapshot.val();
+	//console.log(getRules);
+	let displayRules = getRules.forEach(singleRule);
+	console.log(displayRules);
+	fbDisplayElem.textContent = displayRules;
+}
+function singleRule(ruleObject){
+	//console.log(ruleObject.description);
+	return ruleObject.description;
+}
 
 //Display a random rule on start page
 let starterRule = pickRandomRule();

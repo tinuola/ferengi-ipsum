@@ -16,7 +16,7 @@ body {
 	width: 75%;
 	margin: 0 auto;}
 
-#display-box {
+#display-box, #firebase-box {
 	min-height: 200px;
 	background-color: #fff;
 	color: #000;
@@ -26,9 +26,10 @@ body {
 	box-shadow: 2px 2px 2px 1px rgba(0, 0, 255, .2);
 	display: flex;
   justify-content: center;
-  align-items: center;}
+	align-items: center;
+	margin-bottom: 10px;}
 
-#ipsum-display {
+#ipsum-display,#firebase-display {
 	padding: 0 50px;
 	font-size: 20px;}
 
