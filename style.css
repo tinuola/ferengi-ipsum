@@ -29,7 +29,7 @@ body {
 	align-items: center;
 	margin-bottom: 10px;}
 
-#ipsum-display,#firebase-display {
+#ipsum-display, #firebase-rules-display {
 	padding: 0 50px;
 	font-size: 20px;}
 
