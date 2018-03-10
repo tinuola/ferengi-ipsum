@@ -19,7 +19,7 @@ The idea of Ferengi Ipsum came while watching reruns of *__[Star Trek: Deep Spac
 
 ## Features
 In progress or potential enhancements<br>
-*See **[Issues](https://github.com/tinuola/ferengi-ipsum/issues)**, **[Project Board](https://github.com/tinuola/ferengi-ipsum/projects/1)** or **[Project Wiki](https://github.com/tinuola/ferengi-ipsum/wiki)**for more details and status updates*
+See **[Issues](https://github.com/tinuola/ferengi-ipsum/issues)**, **[Project Board](https://github.com/tinuola/ferengi-ipsum/projects/1)** or **[Project Wiki](https://github.com/tinuola/ferengi-ipsum/wiki)**for more details and status updates*
 
 * Display n number of rules randomly
 * Copy to clipboard button functionality
