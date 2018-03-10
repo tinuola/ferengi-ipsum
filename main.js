@@ -29,7 +29,7 @@ function getFbRules (dataSnapshot){
 	fbRulesArr = dataSnapshot.val();
 	let starterRule = pickRandomRule();
 	ipsumDisplay.innerHTML = starterRule;
-	console.log(fbRulesArr);
+	// console.log(fbRulesArr);
 }
 
 //Generate a random rule
@@ -50,6 +50,7 @@ function displayRules(){
 	let requestedRulesIndexArr = [];
 	let getRandomRule;
 
+	//Check that generated rules will be unique, not repeated
 	while(requestedRulesArr.length < Number(userInputVal)){
 		getRandomRule = pickRandomRule();
 		if(!requestedRulesIndexArr.includes(randomRuleIndex)){
@@ -58,8 +59,13 @@ function displayRules(){
 			requestedRulesArr.push(getRandomRule);
 		}
 	}
-	console.log(requestedRulesArr);
-	ipsumDisplay.innerHTML = removeCase(requestedRulesArr).join(" ");
+	// console.log(requestedRulesArr);
+
+	if(requestedRulesArr.length === 1){
+		ipsumDisplay.innerHTML = requestedRulesArr.toString();
+	} else {
+		ipsumDisplay.innerHTML = removeCase(requestedRulesArr).join(" ");
+	}
 }
 
 //On pressing "enter" key after input, display user's request
