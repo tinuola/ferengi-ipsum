@@ -1,44 +1,69 @@
-//Hardcoded rules
-let rules = [
-	"War is good for business",
-	"You can't make a deal if you're dead",
-	"Every man has his price",
-	"Exploitation begins at home",
-	"Expand or die",
-	"Whisper your way to success",
-	"Knowledge equals profit",
-	"Once you have their money you never give it back",
-	"Even if it's free you can always buy it cheaper",
-	"Satisfaction is not guaranteed"
-];
+/*jshint esversion: 6 */
+////////// Initialize Firebase/////////////////
+var config = {
+	apiKey: "AIzaSyBDUg-JpP4C49m-nzuB_buQmAtJ_Kr3hoA",
+	authDomain: "ferengi-ipsum.firebaseapp.com",
+	databaseURL: "https://ferengi-ipsum.firebaseio.com",
+	projectId: "ferengi-ipsum",
+	storageBucket: "ferengi-ipsum.appspot.com",
+	messagingSenderId: "180729146431"
+};
+firebase.initializeApp(config);
+///////////////////////////////////////////////
 
-//Display a random rule on start page
-let starterRule = pickRandomRule();
+
 let ipsumDisplay = document.getElementById("ipsum-display");
-ipsumDisplay.innerHTML = starterRule;
+let userInputElem = document.getElementById("user-input");
+let submitElem = document.getElementById("submit-btn");
+
+//Firebase database reference object
+let rulesRef = firebase.database().ref("rules");
+
+//Store rules retrieved from Firebase
+let fbRulesArr;
+let randomRuleIndex;
+//Firebase event listener
+rulesRef.on("value", getFbRules);
+
+function getFbRules (dataSnapshot){
+	fbRulesArr = dataSnapshot.val();
+	let starterRule = pickRandomRule();
+	ipsumDisplay.innerHTML = starterRule;
+	console.log(fbRulesArr);
+}
+
+//Generate a random rule
+function pickRandomRule(){
+	/* Get a random rule between 1 and length of 
+	rules array (skips 0 index which is empty)*/
+	randomRuleIndex = Math.floor(Math.random() * (fbRulesArr.length-1) + 1);
+	return fbRulesArr[randomRuleIndex].description;
+}
 
 //On submit button click, display user's request
-let submitElem = document.getElementById("submit-btn");
 submitElem.addEventListener("click", displayRules);
-
-//On pressing "enter" key after input, display user's request
-let userInputElem = document.getElementById("user-input");
-userInputElem.addEventListener("keypress", pressSubmit);
-
-//Copy displayed rule(s) to clipboard
-//Initialize Clipboard.js
-let copyElem = document.getElementById("copy-btn");
-let clipboard = new Clipboard(copyElem);
 
 //Display n # of rules
 function displayRules(){
 	let userInputVal = document.getElementById("user-input").value;
-	let displayArr = [];
-	for (var i = 0; i < Number(userInputVal); i++){
-		displayArr.push(pickRandomRule());
+	let requestedRulesArr = [];
+	let requestedRulesIndexArr = [];
+	let getRandomRule;
+
+	while(requestedRulesArr.length < Number(userInputVal)){
+		getRandomRule = pickRandomRule();
+		if(!requestedRulesIndexArr.includes(randomRuleIndex)){
+			//randomRuleIndex is generated from pickRandomRule()
+			requestedRulesIndexArr.push(randomRuleIndex);
+			requestedRulesArr.push(getRandomRule);
+		}
 	}
-	ipsumDisplay.innerHTML = removeCase(displayArr).join(" ");
+	console.log(requestedRulesArr);
+	ipsumDisplay.innerHTML = removeCase(requestedRulesArr).join(" ");
 }
+
+//On pressing "enter" key after input, display user's request
+userInputElem.addEventListener("keypress", pressSubmit);
 
 //Display rules on keypress "enter"
 function pressSubmit(event){
@@ -47,19 +72,18 @@ function pressSubmit(event){
 	}
 }
 
-//Remove case of subsequent rules
+//Remove case of rules
 function removeCase(arr){
 	if(arr.length > 1){
 		var arrUncapped = [arr[0]];
-		  for(var i = 1; i < arr.length; i++){
-			  arrUncapped.push(arr[i].toLowerCase());
-		  }
+			for(var i = 1; i < arr.length; i++){
+				arrUncapped.push(arr[i].toLowerCase());
+			}
 		return arrUncapped;
-	  } 
+		} 
 }
 
-//Generate a random rule
-function pickRandomRule(){
-	let randomRule = Math.floor(Math.random()*rules.length);
-	return rules[randomRule];
-}
+//Copy displayed rule(s) to clipboard
+//Initialize Clipboard.js
+let copyElem = document.getElementById("copy-btn");
+let clipboard = new Clipboard(copyElem);
